@@ -1,0 +1,4 @@
+#requirements.txt para cha-price.py
+requests
+json
+pyfiglet

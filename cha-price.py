@@ -16,7 +16,7 @@ def btc_usd():
 def cha_btc():
     cha_r = requests.get('https://www.southxchange.com/api/prices')
     data_c = cha_r.json()
-    obj_c = json.dumps(data_c[35]['Last'])
+    obj_c = json.dumps(data_c[34]['Last'])
     cha = float(obj_c)
     return cha
 

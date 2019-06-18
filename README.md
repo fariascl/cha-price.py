@@ -12,4 +12,4 @@ Donaciones:
 
 **Mi indicador**: https://mindicador.cl/#donar, es el sitio web que dispone de la API pública para obtener el valor del dolar y Bitcoin en peso chileno. Apoya el proyecto haciendo una donación.
 
-**SouthXchange**: https://southxchange.com, es el exchange que hace posible obtener el precio de la Chaucha en Bitcoin.
+**OrionX**: https://orionx.com, es el exchange que hace posible obtener el precio de la Chaucha en CLP.

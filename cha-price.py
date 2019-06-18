@@ -1,47 +1,59 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
 #  cha-price.py
 #
-
 import os, requests, json, pyfiglet
 
-def btc_usd():
-    btc_r = requests.get('https://mindicador.cl/api')
-    data_b = btc_r.json()
-    obj_b = json.dumps(data_b['bitcoin']['valor'])
-    btc = float(obj_b)
-    return btc
+class Criptomoneda(object):
+    def __init__(self, ticker):
+        self.ticker = ticker
 
-def cha_btc():
-    cha_r = requests.get('https://www.southxchange.com/api/prices')
-    data_c = cha_r.json()
-    obj_c = json.dumps(data_c[34]['Last'])
-    cha = float(obj_c)
-    return cha
+    def obtenerPrecio(self):
+        url = "http://stats.orionx.com/ticker" #api
+        r = requests.get(url)
+        data = r.json()
+        obj = json.dumps(data[str(self.ticker) + 'CLP']['lastPrice'])
+        return int(obj)
 
-def in_clp():
-    u = requests.get('https://mindicador.cl/api')
-    data = u.json()
+def dolarinclp():
+    r = requests.get('https://mindicador.cl/api')
+    data = r.json()
     clp = json.dumps(data['dolar']['valor'])
-    clp = float(clp)
-    return clp
+    price = float(clp)
+    return price
 
 def main():
     os.system("clear")
     logo = pyfiglet.figlet_format("CriptoPrecios")
     print(logo)
-    cha = cha_btc()
-    btc = btc_usd()
-    clp = in_clp()
-    btc_clp = btc * clp # Valor de Bitcoin en USD * valor del USD en CLP
-    cha_clp = cha * btc_clp # Valor de Chaucha en BTC * valor de BTC en CLP
+    print(" --------------------------------------")
+    print("|El precio actual del dolar es: " + str(dolarinclp()) + " |")
+    print(" --------------------------------------")
+    print(" 1) Chaucha (CHA)\n 2) Bitcoin (BTC)\n 3) Litecoin\n 4) Todas")
 
-    print("El precio actual de la Chaucha (en BTCs) es: {0:.8f}".format(cha))
-    print("El precio del BTC (en USD) es: {0:.2f}".format(btc))
-    print("El precio del dolar en CLP es: {0:.2f}".format(clp))
-    print("El precio actual de la Chaucha en CLP es: {0:.2f}".format(cha_clp))
-    print("El precio del Bitcoin en CLP es: {0:.2f}".format(btc_clp))
+    try:
+        opt = input(" Elige: ")
+        if (opt == 1):
+            moneda = Criptomoneda('CHA')
+            print(" El precio de Chaucha en CLP es de: $" + str(moneda.obtenerPrecio()))
+
+        elif (opt == 2):
+            moneda = Criptomoneda('BTC')
+            print(" El precio del Bitcoin en CLP es de: $" + str(moneda.obtenerPrecio()))
+
+        elif (opt == 3):
+            moneda = Criptomoneda('LTC')
+            print(" El precio del Litecoin en CLP es de: $" + str(moneda.obtenerPrecio()))
+        else:
+            cha = Criptomoneda('CHA')
+            btc = Criptomoneda('BTC')
+            ltc = Criptomoneda('LTC')
+            print(" El precio de Chaucha en CLP es de: $" + str(cha.obtenerPrecio()))
+            print(" El precio de Bitcoin en CLP es de: $" + str(btc.obtenerPrecio()))
+            print(" El precio de Litecoin en CLP es de: $" + str(ltc.obtenerPrecio()))
+    except KeyboardInterrupt:
+        print("\n Saliendo...")
+        exit()
 
 if __name__ == '__main__':
     import sys

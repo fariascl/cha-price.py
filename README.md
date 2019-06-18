@@ -10,6 +10,6 @@ Para usar correctamente este script es necesario ejecutar **python-pip** para in
 
 Donaciones:
 
-**Mi indicador**: https://mindicador.cl/#donar, es el sitio web que dispone de la API pública para obtener el valor del dolar y Bitcoin en peso chileno. Apoya el proyecto haciendo una donación.
+**Mi indicador**: https://mindicador.cl/#donar, es el sitio web que dispone de la API pública para obtener el valor del dolar. Apoya el proyecto haciendo una donación.
 
 **OrionX**: https://orionx.com, es el exchange que hace posible obtener el precio de la Chaucha en CLP.

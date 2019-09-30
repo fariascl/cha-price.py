@@ -4,7 +4,7 @@ Precio de la Chaucha y Bitcoin en peso chileno
 Este script en python se conecta a distintas APIs públicas para obtener el valor actual de la criptomoneda Chaucha y BTC para mostrarlos en
 peso chileno.
 
-Para usar correctamente este script es necesario ejecutar **python-pip** para instalar los modulos:
+Para usar correctamente este script es necesario ejecutar **python-pip3** para instalar los modulos:
 
 `pip3 install -r requirements.txt`
 

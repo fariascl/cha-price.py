@@ -6,7 +6,7 @@ peso chileno.
 
 Para usar correctamente este script es necesario ejecutar **python-pip** para instalar los modulos:
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 Donaciones:
 

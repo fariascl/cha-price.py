@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#  cha-price.py
-#
 import os, requests, json, pyfiglet
 
 class Criptomoneda(object):
